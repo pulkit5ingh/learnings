@@ -84,7 +84,7 @@ const country = 'USA';
   6. Symbol: Unique and immutable value used as the key of an object property.
   7. BigInt: For arbitrarily large integers.
 
-  ```bash
+```bash
     ex:-
 
     let message = 'Hello, World!'; // String
@@ -95,7 +95,7 @@ const country = 'USA';
     let uniqueID = Symbol('id'); // Symbol
     let largeNumber = 9007199254740991n; // BigInt
 
-  ```
+```
 
 - Non-Primitive Types:
 
@@ -103,14 +103,14 @@ const country = 'USA';
   2. Array: Ordered collection of values.
   3. Function: Block of code designed to perform a particular task.
 
-  ```bash
+```bash
     ex:-
 
     let person = { name: 'Alice', age: 25 }; // Object
     let numbers = [1, 2, 3, 4, 5]; // Array
     function greet(name) { return 'Hello, ' + name; } // Function
 
-  ```
+```
 
 ### javascript operators
 
