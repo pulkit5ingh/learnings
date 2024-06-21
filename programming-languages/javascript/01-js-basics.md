@@ -2,33 +2,55 @@ https://chatgpt.com/share/e3432bfa-8e65-4141-8d95-c408c2e89a0b
 
 ### statements
 
-- let x, y, z; // Statement 1
-- x = 5; // Statement 2
-- y = 6; // Statement 3
-- z = x + y; // Statement 4
+```bash
+ex:-
+
+    let x, y, z; // Statement 1
+    x = 5; // Statement 2
+    y = 6; // Statement 3
+    z = x + y; // Statement 4
+
+```
 
 ### semicolons
 
 - semicolons separate JavaScript statements.
 - add a semicolon at the end of each executable statement:
 
-- let a, b, c; // Declare 3 variables
-- a = 5; // Assign the value 5 to a
-- b = 6; // Assign the value 6 to b
-- c = a + b; // Assign the sum of a and b to c
+```bash
+ex:-
+
+    let a, b, c; // Declare 3 variables
+    a = 5; // Assign the value 5 to a
+    b = 6; // Assign the value 6 to b
+    c = a + b; // Assign the sum of a and b to c
+
+```
 
 ### syntax
 
 - JavaScript syntax is the set of rules, how JavaScript programs are constructed:-
 
-- // How to create variables:
-- var x;
-- let y;
+- How to create variables:
 
-- // How to use variables:
-- x = 5;
-- y = 6;
-- let z = x + y;
+```bash
+ex:-
+
+    var x;
+    let y;
+
+```
+
+- How to use variables:
+
+```bash
+ex:-
+
+    x = 5;
+    y = 6;
+    let z = x + y;
+
+```
 
 ### javascript variables
 
@@ -72,6 +94,7 @@ const country = 'USA';
     let value; // Undefined
     let uniqueID = Symbol('id'); // Symbol
     let largeNumber = 9007199254740991n; // BigInt
+
   ```
 
 - Non-Primitive Types:
@@ -86,6 +109,7 @@ const country = 'USA';
     let person = { name: 'Alice', age: 25 }; // Object
     let numbers = [1, 2, 3, 4, 5]; // Array
     function greet(name) { return 'Hello, ' + name; } // Function
+
   ```
 
 ### javascript operators
@@ -104,6 +128,7 @@ const country = 'USA';
     console.log(a / b); // Division: 2.5
     console.log(a % b); // Modulus: 1
     console.log(a ** b); // Exponentiation: 25
+
 ```
 
 2. Assignment Operators: Used to assign values to variables.
@@ -117,6 +142,7 @@ const country = 'USA';
 
     x *= 2; // Equivalent to x = x * 2
     console.log(x); // 30
+
 ```
 
 3. Comparison Operators: Used to compare two values.
@@ -130,6 +156,7 @@ const country = 'USA';
     console.log(5 !== '5'); // Strict not equal to: true
     console.log(5 > 2); // Greater than: true
     console.log(5 < 2); // Less than: false
+
 ```
 
 4. Logical Operators: Used to combine logical statements.
@@ -143,6 +170,7 @@ const country = 'USA';
     console.log(a && b); // Logical AND: false
     console.log(a || b); // Logical OR: true
     console.log(!a); // Logical NOT: false
+
 ```
 
 ### javascript control structures
@@ -161,6 +189,7 @@ const country = 'USA';
     } else {
     console.log('Zero');
     }
+
 ```
 
 2. Switch Statement: Used to perform different actions based on different conditions.
@@ -180,6 +209,7 @@ const country = 'USA';
     default:
         console.log('Middle of the week');
     }
+
 ```
 
 3. Loops: Used to repeat a block of code a number of times.
@@ -192,6 +222,7 @@ const country = 'USA';
     for (let i = 0; i < 5; i++) {
         console.log(i);
     }
+
 ```
 
 - 2. While Loop:
@@ -202,6 +233,7 @@ const country = 'USA';
     for (let i = 0; i < 5; i++) {
         console.log(i);
     }
+
 ```
 
 - 3. Do-While Loop:
@@ -214,6 +246,7 @@ const country = 'USA';
         console.log(i);
         i++;
     } while (i < 5);
+
 ```
 
 - 4. Iteration Methods
