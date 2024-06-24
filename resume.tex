@@ -1,0 +1,200 @@
+%-------------------------
+% Resume in Latex
+% Author : pulkit Singh
+% Website: https://github.com/pulkit5ingh
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://pulkitsingh.vercel.app/}{\Large Pulkit Singh}} & Email : \href{mailto:pulkitsinghmail@gmail.com}{pulkitsinghmail@gmail.com}\\
+  \href{https://pulkitsingh.vercel.app/}{https://www.pulkitsingh.vercel.app/} & Mobile : +91-6294872159 \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Institute Of Science and Technology}{Chandrakona West Bengal}
+    {Master of Computer Applications}{2020 -- 2022}
+    \resumeSubheading
+    {Institute Of Science and Technology}{Chandrakona West Bengal}
+    {Bachelor of Computer Applications}{2017 -- 2020}
+    \resumeSubheading
+    {S.E Rly Mixed Higher Secondary School ( English Medium )}{Kharagpur West Bengal}
+    {Secondary and Higher Secondary}{2012 -- 2017}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+  \resumeSubheading
+  {Corpusvision Technologies Pvt. Ltd.}{Bhandup West, Mumbai, Maharashtra}
+  {Senior Backend Engineer}{February 2023 - Present}
+  \resumeItemListStart
+  \resumeItem{Projects}
+       {Built and Engineered backend APIs for multiple projects such as
+       \href{https://tripinnov.com/}{https://tripinnov.com/} - A tech travel platform for common travel agents.
+       \href{https://www.ordercoro.com/}{https://www.ordercoro.com/} - India’s leading foodtech platform for hyperlocal market.
+       \href{https://treint.com/}{https://treint.com/} - The Treatment Intelligence mobile app that revolutionizes the way you manage your health!.
+       I utilized Node.js as the development environment, using TypeScript and JavaScript as programming languages, and employed Express.js and NestJS as backend frameworks.
+       }
+    \resumeItem{Authentication and Authorization: Built a Dynamically configurable RBAC system}
+        {Implemented Role based Authentication and Authorization using PassportJS and JWT with a dynamically configurable RBAC (Role-Based Access Control) system, allowing flexible and granular access management with robust authentication mechanisms.}
+    \resumeItem{Documentation}
+        {I have created comprehensive documentation for my projects backend APIs using both Swagger and Postman.}
+    \resumeItem{Notifications Mail ans SMS System using Node mailer and Test Local API}
+        {Developed a comprehensive service for sending email and sms, for otp and other notifications for users.}
+    \resumeItem{Statistics and reports}
+        {I have integrated highly scalable MongoDB aggregation queries to generate comprehensive reports and statistics from stored data for various roles, with the capability to export this data in multiple formats. The reports can be queried by date, month, year, and many other parameters, providing flexible and detailed insights.}
+    \resumeItem{Bulk Task}
+        {I have built Bulk upload task system which request a excel sheet uploads the correct data and rejects the incorrect data with proper validation message in the same excel sheet, using BullMq and redis}
+    \resumeItem{Payment gateways}
+        {I utilized PhonePe's and Easebuzz payment gateway API with webhooks to facilitate seamless money transactions.}
+    \resumeItem{User subscription}
+        {I integrated subscription models and reminder offering a range of options including trial, monthly, half-yearly, and yearly plans.}
+    \resumeItem{PDF Genrator Puppeteer and Handlebars template engine}
+        {Created a PDF generation tool to produce customized PDFs for OTP, resetting password, quotations, billing and many other templates.}
+    \resumeItem{Media Uploads and Downloads}
+        {I extensively utilized AWS S3 for storing, updating, retrieving media files.}
+    \resumeItem{Documentation}
+        {I have created comprehensive documentation for my projects backend APIs using both Swagger and Postman.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {DandD Tech USA Inc.}{Brooklyn, NY, USA}
+  {Backend Engineer}{October 2020 - January 2023}
+  \resumeItemListStart
+  \resumeItem{Projects}
+       {Built and Engineered backend APIs for multiple projects such as
+       \href{https://robofood.io/}{https://robofood.io/} - A cloud restaurant autopilot.
+       \href{https://frontliner.care/}{https://frontliner.care/} - A complete software platform and EMR that provides superior client outcome, improves caregiver retention, and reduce administrative overhead.
+       I utilized Node.js as the development environment, JavaScript as programming languages, Express.js library.
+       }
+       \resumeItem{Inventory and POS Management}
+       {Implemented Apis for Branch, Orders, Payment, Menu, Items, Bookings, Deliveries, POS and many other module Operations }
+       \resumeItem{Authentication and Authorization}
+       {Implemented Authentication and Authorization using JWT}
+       \resumeItem{Jobs and automation}
+       {Implemented Cron Jobs for automated notification via SMS and Emails, and manipulating database}
+       \resumeItem{Service integrations}
+       {Implemented Firebase for authentication and Twilio for authentication and SMS notification }
+       \resumeItem{Storage and Data}
+       {Used Mongodb for storing large data, AWS S3 and cloudinary for media and documents uploads }
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Fliqa India Pvt. Ltd}{Bidhannagar, Kolkata, West Bengal}
+  {Fullstack Developer}{October 2019 - October 2020}
+  \resumeItemListStart
+  \resumeItem{Projects}
+       {Built the Full stack (MERN) website for
+       \href{https://fliqaindia.com/}{https://fliqaindia.com/} - Professional Photography and creative platform.
+       I utilized Node.js as the development environment, JavaScript as programming languages, Express.js library for building APIs.
+       }
+       \resumeItem{Landing Website and Admin Panel}
+       {Using MERN stack i have build the landing page along with admin panel which handles Bookings, Leads, CRM, Transactions and many other modules }
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Tripinnov \href{https://tripinnov.com/}{https://www.tripinnov.com}}
+      {A Multi tenant multi portal tech travel subscription and commission based platform for creating and selling travel quotation on the go}
+    \resumeSubItem{Ordercoro \href{https://ordercoro.com/}{https://www.ordercoro.com}}
+      {A Multiple role ad location based food ordering and order management system open for restaurant owners, vendor, supplier and customers }
+    \resumeSubItem{Frontliner \href{https://frontliner.care/}{https://www.frontliner.care}}
+      {Manage your restaurant functions like online ordering, billing, CRM, inventory management, centralized menu management}
+    \resumeSubItem{Frontliner \href{https://frontliner.care/}{https://www.frontliner.care}}
+      {A tech platform for caregiver and patient where caregiver is assigned to patients for helping and caring patient and paid accordingly}
+%     \resumeSubItem{Mac Setup}
+%       {Book that gives step by step instructions on setting up developer environment on Mac OS.}
+  \resumeSubHeadingListEnd
+
+%
+%--------PROGRAMMING SKILLS------------
+\section{Skills}
+ \resumeSubHeadingListStart
+    \resumeSubItem{Programming Languages:} {Javascript, TypeScript.}
+    \resumeSubItem{Technologies:} {React.js, Next.js, RESTful APIs, Node.js, Express.js, Nest.js.}
+    \resumeSubItem{Databases:} {Mongodb, PostgressQL.}
+    \resumeSubItem{Devops:} {Git, Github, CI/CD, Nginx, PM2, AWS, S3, Digital Ocean, Docker.}
+    \resumeSubItem{Soft/Other Skills:} {Agile/Scrum, Problem Solving, Communication, Time Management.}
+ \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

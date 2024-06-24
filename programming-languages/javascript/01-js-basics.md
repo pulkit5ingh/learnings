@@ -2,7 +2,7 @@ https://chatgpt.com/share/e3432bfa-8e65-4141-8d95-c408c2e89a0b
 
 ### statements
 
-```bash
+```javascript
 ex:-
 
     let x, y, z; // Statement 1
@@ -17,7 +17,7 @@ ex:-
 - semicolons separate JavaScript statements.
 - add a semicolon at the end of each executable statement:
 
-```bash
+```javascript
 ex:-
 
     let a, b, c; // Declare 3 variables
@@ -33,7 +33,7 @@ ex:-
 
 - How to create variables:
 
-```bash
+```javascript
 ex:-
 
     var x;
@@ -43,7 +43,7 @@ ex:-
 
 - How to use variables:
 
-```bash
+```javascript
 ex:-
 
     x = 5;
@@ -61,7 +61,7 @@ ex:-
    let: Block-scoped and can be re-assigned.
    const: Block-scoped and cannot be re-assigned.
 
-```bash
+```javascript
 ex:-
 
 var name = 'John';
@@ -84,7 +84,7 @@ const country = 'USA';
   6. Symbol: Unique and immutable value used as the key of an object property.
   7. BigInt: For arbitrarily large integers.
 
-```bash
+```javascript
     ex:-
 
     let message = 'Hello, World!'; // String
@@ -103,7 +103,7 @@ const country = 'USA';
   2. Array: Ordered collection of values.
   3. Function: Block of code designed to perform a particular task.
 
-```bash
+```javascript
     ex:-
 
     let person = { name: 'Alice', age: 25 }; // Object
@@ -116,7 +116,7 @@ const country = 'USA';
 
 1. Arithmetic Operators: Used to perform arithmetic on numbers.
 
-```bash
+```javascript
     ex:-
 
     let a = 5;
@@ -133,7 +133,7 @@ const country = 'USA';
 
 2. Assignment Operators: Used to assign values to variables.
 
-```bash
+```javascript
     ex:-
 
     let x = 10;
@@ -147,21 +147,18 @@ const country = 'USA';
 
 3. Comparison Operators: Used to compare two values.
 
-```bash
-    ex:-
-
-    console.log(5 == '5'); // Equal to: true
-    console.log(5 === '5'); // Strict equal to: false
-    console.log(5 != '5'); // Not equal to: false
-    console.log(5 !== '5'); // Strict not equal to: true
-    console.log(5 > 2); // Greater than: true
-    console.log(5 < 2); // Less than: false
-
+```javascript
+ex: -console.log(5 == '5'); // Equal to: true
+console.log(5 === '5'); // Strict equal to: false
+console.log(5 != '5'); // Not equal to: false
+console.log(5 !== '5'); // Strict not equal to: true
+console.log(5 > 2); // Greater than: true
+console.log(5 < 2); // Less than: false
 ```
 
 4. Logical Operators: Used to combine logical statements.
 
-```bash
+```javascript
     ex:-
 
     let a = true;
@@ -177,7 +174,7 @@ const country = 'USA';
 
 1. Conditional Statements: Used to perform different actions based on different conditions.
 
-```bash
+```javascript
     ex:-
 
     let num = 10;
@@ -194,7 +191,7 @@ const country = 'USA';
 
 2. Switch Statement: Used to perform different actions based on different conditions.
 
-```bash
+```javascript
     ex:-
 
     let day = 'Monday';
@@ -216,7 +213,7 @@ const country = 'USA';
 
 - 1. For Loop:
 
-```bash
+```javascript
     ex:-
 
     for (let i = 0; i < 5; i++) {
@@ -227,7 +224,7 @@ const country = 'USA';
 
 - 2. While Loop:
 
-```bash
+```javascript
     ex:-
 
     for (let i = 0; i < 5; i++) {
@@ -238,7 +235,7 @@ const country = 'USA';
 
 - 3. Do-While Loop:
 
-```bash
+```javascript
     ex:-
 
     let i = 0;
@@ -251,7 +248,7 @@ const country = 'USA';
 
 - 4. Iteration Methods
 
-```bash
+```javascript
     ex:-
 
     let numbers = [1, 2, 3, 4, 5];
@@ -275,4 +272,94 @@ const country = 'USA';
     }, 0);
     console.log(sum); // 15
 
+```
+
+### javascript functions
+
+1. Function declaration
+
+```javascript
+ex: -function add(a, b) {
+  return a + b;
+};
+
+console.log(add(2, 3)); // 5
+```
+
+2. Function Expression
+
+```javascript
+    ex:-
+
+    const multiply = function(a, b) {
+    return a * b;
+    };
+
+    console.log(multiply(2, 3)); // 6
+
+```
+
+3. Arrow Functions:
+
+```javascript
+    ex:-
+
+    const subtract = (a, b) => a - b;
+
+    console.log(subtract(5, 2)); // 3
+
+```
+
+4. Higher-Order Functions: Functions that operate on other functions.
+
+```javascript
+ex: -function filterArray(arr, callback) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = filterArray(numbers, (num) => num % 2 === 0);
+
+console.log(evenNumbers); // [2, 4]
+```
+
+5. Callback Functions: Functions passed as arguments to other functions.
+
+```javascript
+ex: -function greet(name, callback) {
+  console.log('Hello, ' + name);
+  callback();
+};
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayGoodbye);
+// Output:
+// Hello, Alice
+// Goodbye!
+```
+
+6. Closures: Functions that remember the scope in which they were created.
+
+```javascript
+ex: -function makeCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+};
+
+const counter = makeCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
 ```
