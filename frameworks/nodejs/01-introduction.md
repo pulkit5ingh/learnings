@@ -7,18 +7,14 @@
 
 - Download Node.js - https://nodejs.org/en/
 
-- Nodejs module
-- - Nodejs import export module
-- - Nodejs built in http module
-- - Nodejs file system module
+### Why use Node.js?
 
-    1. Read files
-    2. Create files
-    3. Update files
-    4. Delete files
-    5. Rename files
+### History of Node.js
 
-- Nodejs package manager NPM
+### Node.js vs Browser
+
+### Running Node.js Code
+
 - Nodejs events
 
 - Nodejs built-in module
