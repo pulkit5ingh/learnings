@@ -30,7 +30,6 @@ ex:-
 ### syntax
 
 - JavaScript syntax is the set of rules, how JavaScript programs are constructed:-
-
 - How to create variables:
 
 ```javascript
