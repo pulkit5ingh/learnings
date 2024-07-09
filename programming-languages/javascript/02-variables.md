@@ -1,5 +1,17 @@
 [text](https://chatgpt.com/c/0c4d90be-545a-431f-ba59-1480629eb599)
 
+```javascript
+_____________________________________________________________________
+|                | var                  | const     | let           |
+|----------------|----------------------|-----------|---------------|
+| scope          | global or functional | block     | block         |
+| redeclare?     | yes                  | no        | no            |
+| reassign?      | yes                  | no        | yes           |
+| hoisted?       | yes                  | no        | no            |
+|___________________________________________________________________|
+
+```
+
 ### Variable declarations
 
 - JavaScript Variables can be declared in 4 ways:
@@ -27,7 +39,6 @@
   3. Names can also begin with $ and \_ (but we will not use it in this tutorial).
   4. Names are case sensitive (y and Y are different variables).
   5. Reserved words (like JavaScript keywords) cannot be used as names.
-  6.
 
 ### Variable scopes
 
@@ -93,3 +104,42 @@ console.log(typeof z); // undefined (z is not accessible outside the function)
 ```
 
 ### Hoisting
+
+```javascript
+
+Hoisting in JavaScript is a behavior in which variable and function declarations are moved (or "hoisted") to the top of their containing scope during the compilation phase, before the code is executed. This means that you can use variables and functions before they are declared in the code.
+
+- Variable Hoisting
+In the case of variables, only the declaration is hoisted, not the initialization. If you try to use a variable before it's declared and initialized, you'll get undefined.
+
+console.log(x); // undefined
+var x = 5;
+console.log(x); // 5
+
+- Function Hoisting
+Function declarations are fully hoisted, meaning both the declaration and the body of the function are moved to the top of the scope.
+
+console.log(foo()); // "Hello"
+function foo() {
+  return "Hello";
+}
+
+However, function expressions are not hoisted. If you try to use a function expression before it's defined, you'll get an error.
+
+console.log(bar()); // TypeError: bar is not a function
+var bar = function() {
+  return "Hello";
+};
+
+- Let and Const
+Variables declared with let and const are also hoisted, but they are not initialized. Accessing them before the declaration results in a ReferenceError.
+
+console.log(a); // ReferenceError: Cannot access 'a' before initialization
+let a = 3;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+const b = 5;
+
+This is because let and const declarations are hoisted to the top of their block scope but are in a "temporal dead zone" from the start of the block until the declaration is encountered.
+
+```
