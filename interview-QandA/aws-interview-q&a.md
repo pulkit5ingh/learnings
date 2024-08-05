@@ -1,0 +1,4 @@
+- EC2 (Elastic Compute Cloud) : setup dev,test and production server to host nodejs backend application.
+- S3 (Simple Storage Service) : Store retrieve and manipulate static assets like images, videos, and documents.
+- AWS Elastic Beanstalk : deploy and manage Node.js applications with minimal configuration with automated load balancing, and scaling.
+- AWS iAM : Created and manage user permissions and access controls for AWS resources
