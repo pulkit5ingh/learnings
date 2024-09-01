@@ -1,3 +1,5 @@
+[text](https://www.w3schools.com/typescript/index.php)
+
 ### TypeScript vs JavaScript
 
 ### TS and JS Interoperability

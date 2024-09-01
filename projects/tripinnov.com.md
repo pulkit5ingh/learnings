@@ -1,3 +1,5 @@
+Hello, my name is Pulkit, and I’m a senior software developer with more than 4 years of experience in Node.js. I hold a Bachelor's degree in Computer Applications,
+
 ### tripinnov
 
 - a tech travel platform for common travel agents nestjs , typescript, & mongodb.
