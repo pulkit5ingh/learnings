@@ -1,0 +1,141 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1:} #2 \vspace{-2pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Pulkit Singh}}\\
+  \vspace{0.5em}
+  \href{mailto:pulkitsinghmail@gmail.com}{pulkitsinghmail@gmail.com} \quad | \quad +91-6294872159 \\
+  \href{https://www.linkedin.com/in/pulkit5ingh/}{linkedin.com/in/pulkit5ingh} \quad | \quad \href{https://github.com/pulkit5ingh}{github.com/pulkit5ingh}
+\end{center}
+
+
+\section{Summary}
+Detail-oriented Backend Engineer with 5+ years of experience designing scalable, secure APIs and backend systems using Node.js, NestJS, and MongoDB. Proven track record of delivering impactful features across domains like foodtech, travel tech, healthcare, and marketplace platforms. Passionate about clean architecture, automation, and performance optimization.
+
+\section{Technical Skills}
+\resumeSubHeadingListStart
+  \resumeSubItem{Languages}{JavaScript, TypeScript}
+  \resumeSubItem{Frameworks \& Libraries}{Node.js, Express.js, NestJS, React.js, Next.js}
+  \resumeSubItem{Databases}{MongoDB, PostgreSQL}
+  \resumeSubItem{Tools \& Platforms}{AWS (S3, EC2), Docker, Redis, Git, PM2, Nginx, BullMQ, DigitalOcean}
+  \resumeSubItem{Dev Practices}{RESTful APIs, Microservices, CI/CD, Agile, Swagger, Postman}
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Senior Backend Engineer - Corpusvision Technologies Pvt. Ltd.}{Feb 2023 – Present}
+  {Mumbai, Maharashtra (Hybrid)}{}
+  \resumeItemListStart
+    \resumeItem{Key Contributions}
+      {Led backend architecture and API development for \href{https://travelbaba.ai/}{Travelbaba}, \href{https://quiksale.in/}{Quiksale}, \href{https://ordercoro.com}{Ordercoro}, and \href{https://treint.com}{Treint} platforms using NestJS and TypeScript.}
+    \resumeItem{RBAC Authorization System}
+      {Designed and implemented a highly configurable Role-Based Access Control (RBAC) system using JWT and PassportJS.}
+    \resumeItem{Bulk Operations System}
+      {Built a robust bulk upload system using BullMQ and Redis with validation and error feedback through Excel.}
+    \resumeItem{Reports and Analytics}
+      {Integrated advanced MongoDB aggregations to generate date-wise reports and insights for admin and users.}
+    \resumeItem{Payment Integrations}
+      {Integrated Razorpay, PhonePe and Easebuzz payment gateways using webhooks and subscription lifecycle handling.}
+    \resumeItem{PDF & Notification Services}
+      {Automated OTP, billing, and quotation generation via dynamic PDF templates and multi-channel (email/SMS) notification system.}
+    \resumeItem{Cloud Infrastructure}
+      {Handled secure file uploads to AWS S3 and maintained server deployment using PM2, Nginx, Docker, CI/CD pipeline.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Backend Engineer - DandD Tech USA Inc.}{Oct 2020 – Jan 2023}
+  {Brooklyn, NY (Remote)}{}
+  \resumeItemListStart
+    \resumeItem{Projects Delivered}
+      {Built and maintained APIs for \href{https://robofood.io}{Robofood} (restaurant management SaaS) and \href{https://frontliner.care}{Frontliner} (healthcare EMR platform) using Express.js and MongoDB.}
+    \resumeItem{POS \& Inventory Modules}
+      {Developed APIs for POS, Inventory, Delivery, Payment, Booking, and Order Management systems.}
+    \resumeItem{Automation}
+      {Implemented CRON-based jobs for email/SMS alerts and background tasks.}
+    \resumeItem{Auth + Firebase}
+      {Used Firebase and Twilio for multi-channel authentication.}
+  \resumeItemListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeSubItem{TravelBaba.ai \href{https://travelbaba.ai}{travelbaba.ai}}
+    {AI-powered assistant for travel agents to generate instant, accurate itineraries and quotations. Implemented using Claude AI (Anthropic SDK) within a NestJS backend. Designed robust JSON schema validation rules to ensure itinerary accuracy, hotel matching, and sequential day planning.}
+  \resumeSubItem{Quiksale \href{https://quiksale.in}{quiksale.in}}
+    {Hyperlocal product resale platform allowing users to upload and discover nearby listings. Built geo-location based filtering, referral tracking, subscription plans, and SEO-optimized category-location URLs.}
+  \resumeSubItem{Tripinnov \href{https://tripinnov.com}{tripinnov.com}}
+    {Travel tech SaaS for agents to manage itineraries, generate dynamic quotations, and earn commissions.}
+  \resumeSubItem{Ordercoro \href{https://ordercoro.com}{ordercoro.com}}
+    {Multi-role foodtech ecosystem for restaurant orders, vendor supplies, and hyperlocal delivery.}
+  \resumeSubItem{Robofood \href{https://robofood.io}{robofood.io}}
+    {Cloud kitchen autopilot with POS, billing, inventory, and delivery integrations.}
+  \resumeSubItem{Frontliner \href{https://frontliner.care}{frontliner.care}}
+    {Healthcare staffing and EMR platform streamlining patient-caregiver engagement.}
+\resumeSubHeadingListEnd
+
+
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Institute of Science and Technology}{Chandrakona, West Bengal}
+    {Bachelor of Computer Applications (BCA)}{2017 – 2020}
+  \resumeSubheading
+    {S.E. Rly Mixed Higher Secondary School (English Medium)}{Kharagpur, West Bengal}
+    {Higher Secondary and Secondary}{2012 – 2017}
+\resumeSubHeadingListEnd
+
+\end{document}
