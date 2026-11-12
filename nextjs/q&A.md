@@ -133,6 +133,98 @@ A: Wrap them with `cache` from `react` — the request memoisation mechanism beh
 
 ### [A2.2 — Static vs Dynamic Rendering](A2.2-static-vs-dynamic-rendering.md)
 
+**Q: Explain the rendering strategies in Next.js: CSR, SSR, SSG and ISR. How do they differ, and when would you choose each?**
+A: They differ in **where** the HTML is produced (the server or the browser) and **when** (at build time, on each request, or periodically in the background). In the App Router you don't pick one for the whole app: **each route** is static or dynamic depending on the APIs and caching it uses, and **each component** is a Server or Client Component.
+
+| | **CSR** (Client-Side Rendering) | **SSR** (Server-Side Rendering) | **SSG** (Static Site Generation) | **ISR** (Incremental Static Regeneration) |
+|---|---|---|---|---|
+| HTML produced | In the **browser**, after the JS loads and fetches data | On the **server, per request** | On the server, **once at build time** | At build time, then **re-generated in the background** |
+| Data freshness | Live (fetched on the client) | Always fresh | As of the last build | Fresh within the `revalidate` window, or on demand |
+| First load / TTFB | Slower first content (shell → spinner → data) | Slower TTFB (server work every time) | **Fastest** (served from a CDN) | **Fast** (CDN), like SSG |
+| SEO | Weak for the client-fetched content | Good | Good | Good |
+| Server cost | Static hosting plus your API | **Highest**: compute on every request | ~0 per request | ~0 per request, plus occasional regeneration |
+| Personalised per user? | Yes | **Yes** (cookies, headers) | No | No |
+| App Router trigger | `'use client'` + fetching with React Query/SWR in the browser | Dynamic APIs (`cookies()`, `headers()`, `searchParams`, `connection()`), `cache: 'no-store'`, or `dynamic = 'force-dynamic'` | Default when a route uses no dynamic APIs or uncached data | `export const revalidate = N`, `fetch(url, { next: { revalidate: N } })`, or `revalidatePath`/`revalidateTag` |
+| Pages Router equivalent | `useEffect`/SWR in the component | `getServerSideProps` | `getStaticProps` (+ `getStaticPaths`) | `getStaticProps` returning `revalidate` |
+
+```tsx
+// 1. SSG: a marketing page with no dynamic data, rendered once at build time
+export default function AboutPage() {
+  return <h1>About us</h1>;
+}
+
+// SSG for dynamic routes: pre-render known slugs at build time
+export async function generateStaticParams() {
+  const docs = await getAllDocs();
+  return docs.map((d) => ({ slug: d.slug }));
+}
+
+// 2. ISR: product pages that are static, but refreshed in the background every 60 s
+export const revalidate = 60;
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const product = await fetch(`https://api.example.com/products/${id}`, { next: { revalidate: 60, tags: [`product-${id}`] } })
+    .then((r) => r.json());
+  return <ProductView product={product} />;
+}
+
+// On-demand ISR: refresh immediately when the CMS or admin changes something
+'use server';
+import { revalidateTag } from 'next/cache';
+export async function updatePrice(id: string, price: number) {
+  await db.product.update({ where: { id }, data: { price } });
+  revalidateTag(`product-${id}`);           // the next visit gets the fresh page; no rebuild needed
+}
+
+// 3. SSR: personalised for each request
+import { cookies } from 'next/headers';
+export default async function AccountPage() {
+  const session = (await cookies()).get('session')?.value;   // a dynamic API → rendered per request
+  const orders = await fetch(`https://api.example.com/orders`, {
+    headers: { Authorization: `Bearer ${session}` },
+    cache: 'no-store',
+  }).then((r) => r.json());
+  return <OrderHistory orders={orders} />;
+}
+
+// 4. CSR: an interactive, user-specific widget whose data is fetched in the browser
+'use client';
+import { useQuery } from '@tanstack/react-query';
+export function LiveNotifications() {
+  const { data, isPending } = useQuery({ queryKey: ['notifications'], queryFn: getNotifications, refetchInterval: 10_000 });
+  return isPending ? <Spinner /> : <NotificationList items={data} />;
+}
+
+// Browser-only libraries (maps, charts using window): skip server rendering entirely
+import dynamic from 'next/dynamic';
+const Map = dynamic(() => import('./Map'), { ssr: false });
+```
+
+**When to choose each (real-world scenarios):**
+
+| Strategy | Choose it for | Why |
+|---|---|---|
+| **SSG** | Marketing and landing pages, documentation, blog posts, legal pages, a portfolio | Content changes only when you deploy, so you get the fastest possible delivery, perfect SEO and zero server cost |
+| **ISR** | **E-commerce product and category pages**, news articles, CMS-driven blogs, large catalogues (thousands of pages), job listings | Mostly static, but the content changes without a deploy. You get CDN speed with acceptable staleness, on-demand revalidation when the CMS or admin edits, and long-tail pages generated on first visit instead of at build |
+| **SSR** | Dashboards and account pages that depend on the **logged-in user**, the cart and checkout, **search results** driven by `searchParams`, pages showing real-time stock or prices, A/B tests based on cookies | The content is different per request or user, or must be fresh on every request, and still needs fast first paint and SEO |
+| **CSR** | Highly interactive, user-specific parts **inside** a page: live notifications, chat, real-time charts, infinite feeds, editors, maps, admin tools behind a login where SEO doesn't matter | The data changes constantly or depends on browser-only APIs, and SEO isn't needed. Render the shell on the server and fetch in the browser |
+
+**In practice, mix them per route.** An e-commerce site, for example:
+- `/` and `/about` use **SSG**.
+- `/products/[id]` uses **ISR**: `revalidate` plus `revalidateTag` when prices change.
+- `/search?q=` and `/account` use **SSR**.
+- The live cart badge and "people viewing now" widget are **CSR** inside those pages.
+
+**Streaming with Suspense** and **Partial Prerendering** blur the line further: they serve a **static shell instantly** and stream the dynamic parts into it.
+
+Interview-ready answer: *"They differ in where and when HTML is generated. SSG renders at build time and serves from a CDN. It's the fastest and cheapest, so I use it for marketing pages, docs and blogs. ISR is SSG that regenerates in the background after a revalidate interval, or on demand with revalidateTag, which suits product pages, news and CMS content that changes without a deploy. SSR renders on every request, for personalised or always-fresh pages like dashboards, the cart or search results, at the cost of server work and a slower TTFB. CSR renders in the browser after fetching data, which I use for highly interactive, user-specific widgets where SEO doesn't matter. In the App Router this is decided per route, by whether I use dynamic APIs like cookies or searchParams and how I cache fetches, so a real app mixes all four."*
+
+Senior-level insight:
+- **Prefer static and use dynamic only where needed.** One `cookies()` call in a shared layout makes **every page under it dynamic**, so keep dynamic APIs as deep in the tree as possible, and confirm the result in the `next build` output (○ static, ƒ dynamic).
+- "CSR" in the App Router still **pre-renders the Client Component's HTML on the server**. Only the client-side *data* loading makes it CSR, unless you use `dynamic(..., { ssr: false })`.
+- **Caching defaults changed between versions.** In Next.js 14, `fetch` was cached by default. Since **Next.js 15**, `fetch` and GET Route Handlers are **not cached by default**, although routes without dynamic APIs are still prerendered at build time. Newer releases add **Cache Components** (`'use cache'`, `cacheLife`, `cacheTag`) for explicit, component-level caching. Check which version the project uses before reasoning about what's cached.
+- ISR serves **stale-while-revalidate**: the first visitor after the window expires still gets the old page and triggers the regeneration. If staleness is unacceptable (prices at checkout), revalidate on demand or render that part dynamically.
+
 **Q: What is static rendering (SSG)?**
 A: The page is rendered once at build time and served from a CDN — the default when there's no dynamic data. Zero server compute per request.
 
